@@ -152,12 +152,12 @@ app.get("/", (req, res) => {
         <th>Huobi/Jup Ask Ratio</th>
       </tr>
       ${tokens.map(token => {
-        if (token.al_dex < 1.20 || token.sat_dex > 0.90 || token.sat_jup > 1.01 || token.al_jup < 0.99) {
+        if (token.al_dex < 0.99 || token.sat_dex > 1.01 || token.sat_jup > 1.01 || token.al_jup < 0.99) {
           return `
             <tr>
               <td>${token.symbol}</td>
-              <td style="color:${token.al_dex < 0.95 ? 'green' : 'inherit'}">${token.al_dex < 1.2 ? token.al_dex : ''}</td>
-              <td style="color:${token.sat_dex > 1.05 ? 'red' : 'inherit'}">${token.sat_dex > 0.90 ? token.sat_dex : ''}</td>
+              <td style="color:${token.al_dex < 0.95 ? 'green' : 'inherit'}">${token.al_dex < 0.99 ? token.al_dex : ''}</td>
+              <td style="color:${token.sat_dex > 1.05 ? 'red' : 'inherit'}">${token.sat_dex > 1.01 ? token.sat_dex : ''}</td>
               <td style="color:${token.al_jup < 0.95 ? 'green' : 'inherit'}">${token.al_jup < 0.99 ? token.al_jup : ''}</td>
               <td style="color:${token.sat_jup > 1.05 ? 'red' : 'inherit'}">${token.sat_jup > 1.01 ? token.sat_jup : ''}</td>
             </tr>
